@@ -1,0 +1,57 @@
+CREATE TABLE categorias (
+  idcategoria SERIAL PRIMARY KEY,
+  nombre VARCHAR(50),
+  estado BOOLEAN
+);
+
+
+CREATE TABLE actividad (
+  idactividad SERIAL PRIMARY KEY,
+  nombre VARCHAR(50),
+  estado BOOLEAN
+);
+
+
+CREATE TABLE prioridad (
+  idprioridad SERIAL PRIMARY KEY,
+  nombre VARCHAR(50),
+  estado BOOLEAN
+);
+
+CREATE TABLE roles (
+  idroles SERIAL PRIMARY KEY,
+  nombre VARCHAR(50),
+  estado BOOLEAN
+);
+
+
+CREATE TABLE usuarios (
+  idusuario SERIAL PRIMARY KEY,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  documento VARCHAR(20),
+  contrasena VARCHAR(100)
+);
+
+CREATE TABLE usuarios_rol (
+  idusuariorol SERIAL PRIMARY KEY,
+  idusuario SERIAL PRIMARY KEY,
+  idrol SERIAL PRIMARY KEY,
+);
+
+
+CREATE TABLE solicitud (
+  idsolicitud SERIAL PRIMARY KEY,
+  fechacrea DATE,
+  idcategoria INTEGER,
+  idactividad INTEGER,
+  descripcion TEXT,
+  idprioridad INTEGER,
+  idusercrea INTEGER,
+  idusertech INTEGER,
+  fechaini DATE,
+  fechafin DATE,
+  observaciontech TEXT,
+  idestado INTEGER,
+  codigosolicitud VARCHAR(20)
+);

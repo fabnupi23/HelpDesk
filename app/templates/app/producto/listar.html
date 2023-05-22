@@ -1,0 +1,42 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+{% load humanize %}
+<br><br><br>
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de productos </h2>
+        <hr>
+        <table class="table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Marca</th>
+                <th>¿Es nuevo?</th>
+            </tr>
+        
+            {% for p in productos %}
+        
+            <tr>
+                <td>{{ p.nombre | title }}</td>
+                <td>${{ p.precio | intcomma }}</td> 
+                <td>{{ p.marca | title }}</td>
+                <td>
+                    {% if p.nuevo %}
+                    SI            
+                    {% else %}
+                    NO
+                    {% endif %}
+                </td>
+            </tr>
+        
+            {% endfor %}
+        
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
