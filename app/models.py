@@ -22,10 +22,16 @@ class Producto(models.Model):
     
 
 opciones_consultas =[
-    [0, "consulta"],
-    [1, "reclamo"],
-    [2, "sugerencia"],
-    [3, "felicitaciones"]
+    [0, "Asesoría Técnica"],
+    [1, "Concepto Técnico"],
+    [2, "Instalación Equipo"],
+    [3, "Instalación Hardware"],
+    [4, "Instalación Software"],
+    [5, "Instalación Preiféricos"],
+    [6, "Mantenimiento Preventivo"],
+    [7, "Revisión equipo de Computo"],
+    [8, "Revisión Periferico"],
+    [9, "Videoconferencia"]
 ]
 
 
