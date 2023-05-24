@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnomarket</title>
+    <title>HelpDesk</title>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
     
     {% load static %}
@@ -19,7 +19,7 @@
     <header id="header">
         <img class="menu" src="{% static 'app/img/menuiconwhite.png' %}" alt="menu" id="menu">
         <div class="contenedor_logo">
-            <img  class="logo"  src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo">
+            <img  class="logo"  src="{% static 'app/img/udes.jpg' %}" alt="logo">
         </div>
 
         <div>
@@ -33,6 +33,29 @@
                         <a href="{% url 'contacto' %}">Contacto</a>
                     </li>
                     <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li>
+                        <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'listar_productos' %}">Listado Productos</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                    </li>
+
+                    <li>
+                        <a href="#">@{{ user.username }}</a>
+                    </li>
+
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'registro' %}">Registrate</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
 
@@ -41,6 +64,8 @@
     </header>
 
     <div id="contenido">
+
+        
 
         {% block contenido %}
         {% endblock %}
@@ -64,7 +89,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
     <script src="{% static 'app/js/menu.js' %}"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Felicitaciones",
+                    "texto": "{{m}}",
+                    "icono": "success"
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
     
     {% block js %}
     {% endblock %}

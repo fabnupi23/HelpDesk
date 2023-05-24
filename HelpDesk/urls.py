@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
+    #importamos la urls que estan en el modulo de autenticación
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
