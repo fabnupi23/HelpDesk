@@ -18,7 +18,7 @@ def contacto(request):
     data = {
         'form': ContactoForm()
     }
-    return render(request, 'app/contacto.html', data)
+    #
 
     if request.method == 'POST':
         formulario = ContactoForm(data=request.POST)
@@ -27,12 +27,14 @@ def contacto(request):
             data["mensaje"] = "Contacto guardado"
         else:
             data["form"] = formulario 
+    
+    return render(request, 'app/contacto.html', data)
 
 
 def galeria(request):
     return render(request, 'app/galeria.html')
 
-def agregar_producto(request):
+def agregar_solicitud(request):
 
     data = {
         'form' : ProductoForm()
@@ -49,7 +51,7 @@ def agregar_producto(request):
 
     return render(request, 'app/producto/agregar.html', data)
 
-def listar_productos(request):
+def listar_solicitud(request):
     productos = Producto.objects.all()
     page = request.GET.get('page', 1)
 

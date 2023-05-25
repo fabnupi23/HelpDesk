@@ -29,15 +29,10 @@
                     <li>
                         <a href="{% url 'home' %}"> Inicio </a>
                     </li>
-                    <li>
-                        <a href="{% url 'contacto' %}">Contacto</a>
-                    </li>
-                    <li><a href="{% url 'galeria' %}">Galería</a></li>
-                    <li>
-                        <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
+                        <a href="{% url 'agregar_solicitud' %}">Agregar Solicitud</a>
                     </li>
                     <li>
-                        <a href="{% url 'listar_productos' %}">Listado Productos</a>
+                        <a href="{% url 'listar_solicitud' %}">Listado Solicitudes</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
