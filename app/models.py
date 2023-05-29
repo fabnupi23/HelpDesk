@@ -10,7 +10,7 @@ class Marca(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
-    precio = models.IntegerField()
+    precio = models.CharField(max_length=100)
     descripcion = models.TextField()
     nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
