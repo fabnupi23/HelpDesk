@@ -27,16 +27,22 @@
             <nav id="nav">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}"> Inicio </a>
+                        <a href="{% url 'home' %}"> Inicio |</a>
                     </li>
-                        <a href="{% url 'agregar_solicitud' %}">Agregar Solicitud</a>
+                        <a href="{% url 'agregar_solicitud' %}">Agregar Solicitud |</a>
+                    </li>
+                    </li>
+                        <a href="{% url 'agregar_tecnico' %}">Add Tecnico |</a>
                     </li>
                     <li>
-                        <a href="{% url 'listar_solicitud' %}">Listado Solicitudes</a>
+                        <a href="{% url 'listar_solicitud' %}">Listado Solicitudes |</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'agregar_tecnico' %}">Listado Tecnicos |</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        <a href="{% url 'logout' %}">Logout |</a>
                     </li>
 
                     <li>
@@ -45,7 +51,7 @@
 
                     {% else %}
                     <li>
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+                        <a href="{% url 'login' %}">Login |</a>
                     </li>
                     <li>
                         <a href="{% url 'registro' %}">Registrate</a>

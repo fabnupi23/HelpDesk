@@ -44,3 +44,14 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class Tecnico(models.Model):
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    cargo = models.CharField(max_length=50)
+    tipo_consulta = models.IntegerField(choices=opciones_consultas)
+    mensaje = models.TextField()
+    avisos = models.BooleanField()
+
+    def __str__(self):
+        return self.nombre
