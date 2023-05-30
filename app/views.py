@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Producto
+from .models import Producto, Tecnico
 from .forms import ContactoForm, ProductoForm, CustomUserCreationForm, AgregarTecnico
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -127,3 +127,10 @@ def tecnico(request):
 
 
     return render(request, 'app/producto/agregar_tecnico.html', data)
+
+def listar_tecnico(request):
+    listartec = Tecnico.objects.all()
+    data = {
+        'listartec': listartec
+    }
+    return render(request, 'app/producto/listar_tecnicos.html', data)
